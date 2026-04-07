@@ -15,6 +15,7 @@
 6. [Enterprise & Institutional Product Lines](#6-enterprise--institutional-product-lines)
 7. [White-Label Opportunities](#7-white-label-opportunities)
 8. [API Monetization Strategies](#8-api-monetization-strategies)
+9. [Advisory Notes](#9-advisory-notes)
 
 ---
 
@@ -25,9 +26,9 @@
 #### 1.1 The Historical Scenario Simulator
 *"What would happen to my portfolio if we're in a 1987 analog right now?"*
 
-Users input their current portfolio holdings. RELICK identifies which historical parallel is most active right now. Then it runs the math: if this parallel plays out, given your position in [Asset A, Asset B, Asset C], here’s the historical precedent for each leg of your portfolio.
+Users input their current portfolio holdings. RELICK identifies which historical parallel is most active right now. Then it runs the math: if this parallel plays out, given your position in [Asset A, Asset B, Asset C], here's the historical precedent for each leg of your portfolio.
 
-This isn’t financial advice. This is historical context + arithmetic. The distinction is real and defensible. But the UX is staggeringly powerful. A user holding tech stocks in a rising rate environment, seeing the NASDAQ 2000 parallel simulated against their actual holdings — that’s a $99/month product that becomes irreplaceable.
+This isn't financial advice. This is historical context + arithmetic. The distinction is real and defensible. But the UX is staggeringly powerful. A user holding tech stocks in a rising rate environment, seeing the NASDAQ 2000 parallel simulated against their actual holdings — that's a $99/month product that becomes irreplaceable.
 
 **Implementation:** Pull user portfolio from brokerage connection (Plaid, Alpaca); map holdings to asset classes in the historical event; calculate modeled impact from `market_reactions` field.
 
@@ -45,21 +46,21 @@ This is simultaneously the best financial history education product that has eve
 ---
 
 #### 1.3 The Narrative Heatmap
-*"Show me the current macro narrative’s geographic and temporal center of gravity."*
+*"Show me the current macro narrative's geographic and temporal center of gravity."*
 
 A world map where geopolitical stress events are shown in real-time, color-coded by their historical correlation to market volatility. The Middle East lights up orange when oil-linked stress occurs. China lights up red when trade war parallels activate. The map shows not just where events are happening — but what those locations historically meant to markets.
 
-This is Oracle-tier. It’s also intensely visual and shareable — a RELICK narrative heatmap screenshot goes viral on finance Twitter.
+This is Oracle-tier. It's also intensely visual and shareable — a RELICK narrative heatmap screenshot goes viral on finance Twitter.
 
 ---
 
 #### 1.4 The Dead Reckoning Score
-*Navigation metaphor: where are we, given where we’ve been?*
+*Navigation metaphor: where are we, given where we've been?*
 
 A composite score (0–100) that represents RELICK's current best estimate of where we are in the historical cycle. It synthesizes:
-- Which macro regime we’re in (Fed stance, yield curve, credit spreads)
+- Which macro regime we're in (Fed stance, yield curve, credit spreads)
 - The top 3 active historical parallels and their average progression stage
-- Sentiment signals from Oracle users’ recent submissions
+- Sentiment signals from Oracle users' recent submissions
 
 This score becomes RELICK's public-facing intellectual product. "The RELICK Dead Reckoning Score is 72 — historically, this has preceded a meaningful equity drawdown in 7 of 9 comparable periods." Every week, it updates. Financial media references it.
 
@@ -67,10 +68,10 @@ This score becomes RELICK's public-facing intellectual product. "The RELICK Dead
 
 ---
 
-#### 1.5 The Founder’s Intel Feed
+#### 1.5 The Founder's Intel Feed
 *For startup founders, not just investors.*
 
-What if RELICK isn’t just for investors? When rates spike, when credit tightens, when geopolitical risk spikes — startup founders need to understand what historically happens to VC funding, hiring markets, and consumer spending. 
+What if RELICK isn't just for investors? When rates spike, when credit tightens, when geopolitical risk spikes — startup founders need to understand what historically happens to VC funding, hiring markets, and consumer spending. 
 
 A RELICK mode specifically for startup operators: paste a headline, get the historical implications for startup fundraising environment, talent availability, and demand shifts in your sector.
 
@@ -83,20 +84,20 @@ A RELICK mode specifically for startup operators: paste a headline, get the hist
 
 A podcast-style daily audio briefing, AI-generated, that sounds like a senior portfolio manager walking you through the current market narrative and its historical parallel. 5–10 minutes. Generated fresh each morning.
 
-The user says: "Relick today." The app responds with a personalized audio briefing based on the active parallels RELICK has detected in the market and the user’s stated investment focus.
+The user says: "Relick today." The app responds with a personalized audio briefing based on the active parallels RELICK has detected in the market and the user's stated investment focus.
 
 **Why this is huge:** 62% of investors are already using AI tools. The next frontier is ambient, audio-first AI intelligence. Spotify for finance. Apple Podcasts distribution (public version). App-exclusive (Oracle version).
 
 ---
 
 #### 1.7 The Collective Intelligence Score
-*When 10,000 serious investors all submit similar theses — that’s a signal.*
+*When 10,000 serious investors all submit similar theses — that's a signal.*
 
 The Oracle community layer aggregates anonymized intel submissions. When submission patterns cluster around a specific parallel or thesis, RELICK surfaces it as a "Community Consensus Event." This is the wisdom of the crowd — but the crowd is specifically: serious investors who pay $99/month for intelligence tools.
 
-This data is proprietary. No one else has it. It’s not Reddit sentiment (noisy). It’s not Twitter (noisier). It’s a curated, self-selected pool of engaged market participants who are willing to pay and therefore have skin in the game.
+This data is proprietary. No one else has it. It's not Reddit sentiment (noisy). It's not Twitter (noisier). It's a curated, self-selected pool of engaged market participants who are willing to pay and therefore have skin in the game.
 
-**The hedge fund version:** When RELICK's community consensus diverges sharply from historical baseline probability — that’s a contrarian signal. The Oracle tier shows you this divergence in real-time.
+**The hedge fund version:** When RELICK's community consensus diverges sharply from historical baseline probability — that's a contrarian signal. The Oracle tier shows you this divergence in real-time.
 
 ---
 
@@ -105,7 +106,7 @@ This data is proprietary. No one else has it. It’s not Reddit sentiment (noisy
 
 For Oracle users: RELICK shows historical cases where the parallel matching engine would have fired, and what the market did subsequently. Users can see the track record of RELICK's parallel detection retrospectively. This is both a proof-of-value mechanism (proves the engine works) and a back-testing product in its own right.
 
-No financial advice. Just: "Here are the 14 times this signal fired since 1979. Here’s what markets did in the following 30, 60, 90 days in each case."
+No financial advice. Just: "Here are the 14 times this signal fired since 1979. Here's what markets did in the following 30, 60, 90 days in each case."
 
 ---
 
@@ -141,7 +142,7 @@ Pivot the product to institutional deployment: sell directly to hedge funds, fam
 ### Pivot B: The Research Platform for Financial Media
 *If content creators and financial journalists are the better wedge.*
 
-RELICK becomes the research tool that financial journalists use to find historical context. When a journalist is writing "Is this the next 2008?" — RELICK gives them the structured answer in 30 seconds. Pricing: $99–$299/month per journalist/editor. Channel: direct sales to newsrooms (Bloomberg Opinion, FT Opinion, WSJ editorial, Barron’s).
+RELICK becomes the research tool that financial journalists use to find historical context. When a journalist is writing "Is this the next 2008?" — RELICK gives them the structured answer in 30 seconds. Pricing: $99–$299/month per journalist/editor. Channel: direct sales to newsrooms (Bloomberg Opinion, FT Opinion, WSJ editorial, Barron's).
 
 **Upside:** Financial media is a distribution force multiplier. Every RELICK-powered article mentions RELICK. The brand awareness alone could be worth more than the revenue.
 
@@ -163,7 +164,7 @@ Instead of selling to end investors, sell the RELICK event intelligence API to f
 
 Lean into the education angle completely. Build RELICK into the CFA Institute curriculum. Partner with university finance departments. Create structured financial history courses built on the knowledge graph. Price at $19–49/month for students.
 
-**Why this could work:** 40% of non-investors say they don’t invest because they don’t know how. Financial literacy is a $10B+ global industry. RELICK’s interactive format is more engaging than any textbook.
+**Why this could work:** 40% of non-investors say they don't invest because they don't know how. Financial literacy is a $10B+ global industry. RELICK's interactive format is more engaging than any textbook.
 
 ---
 
@@ -179,7 +180,7 @@ Robinhood has ~15M+ funded accounts, most of which are younger investors. Their 
 ---
 
 **Real Vision (Raoul Pal)**  
-Real Vision is the premium financial media brand for the macro-literate investor — exactly RELICK’s target audience. A RELICK + Real Vision integration ("RELICK Historical Context" embedded in Real Vision’s video annotations or research library) reaches 100K+ highly engaged, willing-to-pay investors.
+Real Vision is the premium financial media brand for the macro-literate investor — exactly RELICK's target audience. A RELICK + Real Vision integration ("RELICK Historical Context" embedded in Real Vision's video annotations or research library) reaches 100K+ highly engaged, willing-to-pay investors.
 
 *Approach:* Founder-to-founder. Raoul Pal is vocal on Twitter and has talked about the importance of market history. Direct DM with a compelling demo.
 
@@ -193,9 +194,9 @@ IBKR has the most sophisticated retail user base of any retail broker — active
 ---
 
 **Bloomberg (Strategic)**  
-Yes, Bloomberg. Not as a competitor — as a data partner. Bloomberg has massive historical news archive but limited AI-powered event annotation infrastructure for consumer-facing products. A RELICK data partnership with Bloomberg (RELICK uses Bloomberg historical news as a Tier 2 source; Bloomberg gets access to RELICK’s structured event annotations) creates a mutual value exchange.
+Yes, Bloomberg. Not as a competitor — as a data partner. Bloomberg has massive historical news archive but limited AI-powered event annotation infrastructure for consumer-facing products. A RELICK data partnership with Bloomberg (RELICK uses Bloomberg historical news as a Tier 2 source; Bloomberg gets access to RELICK's structured event annotations) creates a mutual value exchange.
 
-*Approach:* Bloomberg Beta (their VC arm) and Bloomberg’s product partnership team are separate from their competitive intelligence team. Approach Bloomberg Beta first as an investor conversation; the partnership conversation flows from there.
+*Approach:* Bloomberg Beta (their VC arm) and Bloomberg's product partnership team are separate from their competitive intelligence team. Approach Bloomberg Beta first as an investor conversation; the partnership conversation flows from there.
 
 ---
 
@@ -207,9 +208,9 @@ Yes, Bloomberg. Not as a competitor — as a data partner. Bloomberg has massive
 
 **CFA Institute:** Partnership with the CFA Institute positions RELICK as the de facto tool for CFA candidates studying financial history. 250,000+ active CFA candidates globally. Educational pricing + institutional credibility.
 
-**Morning Brew / The Hustle:** Content sponsorship + deeper integration. When Morning Brew covers a market event, they link to the RELICK historical context. Distribution at scale; RELICK provides the depth they don’t have time to build.
+**Morning Brew / The Hustle:** Content sponsorship + deeper integration. When Morning Brew covers a market event, they link to the RELICK historical context. Distribution at scale; RELICK provides the depth they don't have time to build.
 
-**TradingView:** TradingView’s Pine Script community could be enabled to query RELICK’s event API. Imagine a TradingView indicator that overlays RELICK event annotations directly on charts. 50M+ TradingView users; even 0.1% conversion to RELICK paid is 50,000 subscribers.
+**TradingView:** TradingView's Pine Script community could be enabled to query RELICK's event API. Imagine a TradingView indicator that overlays RELICK event annotations directly on charts. 50M+ TradingView users; even 0.1% conversion to RELICK paid is 50,000 subscribers.
 
 ---
 
@@ -225,7 +226,7 @@ Elections move markets. Trade policy moves markets. Regulatory changes move mark
 
 ### Adjacent Market 2: Corporate Treasury & CFO Intelligence
 
-When interest rates rise, what historically happens to corporate borrowing costs? When credit spreads widen, what have CFOs historically done with their debt maturity profiles? RELICK’s historical parallel engine is as useful for a corporate treasurer as for an investor.
+When interest rates rise, what historically happens to corporate borrowing costs? When credit spreads widen, what have CFOs historically done with their debt maturity profiles? RELICK's historical parallel engine is as useful for a corporate treasurer as for an investor.
 
 **Market:** 40,000+ public company CFOs in the US alone. Each manages billions in corporate treasury. A RELICK product priced at $500–2,000/month per CFO team is a B2B SaaS play with low churn and high ACV.
 
@@ -241,7 +242,7 @@ Financial journalists spend enormous time searching for historical context. "Wha
 
 ### Adjacent Market 4: University Finance Education
 
-Every MBA program, every CFA prep course, every undergraduate finance class covers financial history through static textbooks. RELICK’s interactive, AI-powered historical learning tool is infinitely more engaging than Mishkin’s Money and Banking.
+Every MBA program, every CFA prep course, every undergraduate finance class covers financial history through static textbooks. RELICK's interactive, AI-powered historical learning tool is infinitely more engaging than Mishkin's Money and Banking.
 
 **Market:** 500+ universities with finance programs; 50,000+ students enrolled in CFA programs. Educational pricing at $19/month per student unlocks a volume play. Institutional licensing at $10,000–50,000/year per university is the B2B version.
 
@@ -249,7 +250,7 @@ Every MBA program, every CFA prep course, every undergraduate finance class cove
 
 ### Adjacent Market 5: Real Estate Macro Intelligence
 
-Real estate investors — particularly institutional real estate investors — need to understand how interest rate cycles, credit events, and geopolitical shocks have historically affected commercial and residential real estate markets. RELICK’s macro layer is highly relevant to real estate.
+Real estate investors — particularly institutional real estate investors — need to understand how interest rate cycles, credit events, and geopolitical shocks have historically affected commercial and residential real estate markets. RELICK's macro layer is highly relevant to real estate.
 
 **Market:** $10T+ real estate asset management industry. REITs, private equity real estate, real estate family offices. A RELICK vertical with real estate-specific asset class reactions (cap rates, mortgage spreads, construction spending) is a distinct product.
 
@@ -312,7 +313,7 @@ RELICK is to financial history what S&P 500 is to equity benchmarking. The "RELI
 - Other data aggregators (Quandl/Nasdaq Data Link; Refinitiv)
 - Government agencies (Treasury, Fed research departments)
 
-**What they’re licensing:**
+**What they're licensing:**
 - Machine-readable export of event knowledge graph (JSON/CSV)
 - Vector embeddings for each event (for their own AI applications)
 - Credibility scores and source citations
@@ -326,7 +327,7 @@ RELICK is to financial history what S&P 500 is to equity benchmarking. The "RELI
 
 **Target:** Large institutional investors — pension funds, sovereign wealth funds, insurance companies, bulge bracket banks
 
-**Product:** A custom deployment of RELICK’s parallel matching engine, configured for the client’s specific risk management needs. The client defines the "regime states" relevant to their portfolio. RELICK monitors continuously and alerts on pattern matches.
+**Product:** A custom deployment of RELICK's parallel matching engine, configured for the client's specific risk management needs. The client defines the "regime states" relevant to their portfolio. RELICK monitors continuously and alerts on pattern matches.
 
 **This is the Bridgewater-for-hire model.** Bridgewater has spent decades building their historical scenario analysis capability. RELICK offers a configurable version at a fraction of the cost.
 
@@ -337,16 +338,16 @@ RELICK is to financial history what S&P 500 is to equity benchmarking. The "RELI
 ### White-Label Scenario 1: Brokerage Research Feature
 *"Historical Context by [Broker], powered by RELICK"*
 
-A brokerage (Schwab, Fidelity, Interactive Brokers) white-labels RELICK’s event annotation engine as part of their research offering. Users see RELICK-powered annotations on charts without knowing the name RELICK. Revenue model: flat monthly SaaS fee ($100K–$500K/month) + per-query pricing.
+A brokerage (Schwab, Fidelity, Interactive Brokers) white-labels RELICK's event annotation engine as part of their research offering. Users see RELICK-powered annotations on charts without knowing the name RELICK. Revenue model: flat monthly SaaS fee ($100K–$500K/month) + per-query pricing.
 
-**Broker incentive:** Engagement and retention. Investors who understand WHY markets moved are more likely to stay invested, which is good for the brokerage’s AUM.
+**Broker incentive:** Engagement and retention. Investors who understand WHY markets moved are more likely to stay invested, which is good for the brokerage's AUM.
 
 ---
 
 ### White-Label Scenario 2: Financial Media Intelligence Tool
 *"Historical Research by [Publication], powered by RELICK"*
 
-A financial publication (Barron’s, Bloomberg Opinion, The Information) white-labels the Submit Intel feature as their editorial research tool. Journalists submit a headline — RELICK returns the 3 historical parallels. The journalist uses this as a starting point for their article. Revenue: $10,000–50,000/month per publication.
+A financial publication (Barron's, Bloomberg Opinion, The Information) white-labels the Submit Intel feature as their editorial research tool. Journalists submit a headline — RELICK returns the 3 historical parallels. The journalist uses this as a starting point for their article. Revenue: $10,000–50,000/month per publication.
 
 ---
 
@@ -400,6 +401,90 @@ GET /api/v1/market_reactions/{event_id}  — Market reactions for a specific eve
 
 The `/api/v1/parallels/match` endpoint — the Submit Intel engine accessed programmatically — is the highest-value API call. Hedge funds who want to run this on a stream of news events (not just individual queries) would pay $10,000–$50,000/month for unlimited access.
 
-A hedge fund running 500 Submit Intel queries per day across their news feed pipeline is the dream enterprise API customer. They’re not using the UI — they’re integrating RELICK’s parallel matching engine directly into their research workflow.
+A hedge fund running 500 Submit Intel queries per day across their news feed pipeline is the dream enterprise API customer. They're not using the UI — they're integrating RELICK's parallel matching engine directly into their research workflow.
 
 **This is the Kensho model.** S&P Global bought Kensho for $550M primarily because hedge funds were using it as an API. The API is where the institutional value lives.
+
+---
+
+## 9. Advisory Notes
+
+> *This document is labeled as a brainstorm — no idea too wild. These notes identify which ideas should be promoted out of the brainstorm and into the core product roadmap immediately, which should be deprioritized, and what's missing entirely.*
+
+---
+
+### 9.1 The Dead Reckoning Score Should Be an MVP Feature, Not a Brainstorm Item
+
+The Dead Reckoning Score is the single most powerful brand idea in this entire document set. It is RELICK's version of the VIX — a proprietary, publicly published signal that becomes synonymous with historical market context. Financial media would reference it. Investors would cite it. It differentiates RELICK from every competitor in one concept.
+
+It is buried in a brainstorm document as if it's a future idea to consider.
+
+It should be on the roadmap for Month 9–12, not Year 2. Here's why:
+- It requires no new infrastructure — it's a synthesis of outputs the system already produces
+- It gives RELICK a weekly content artifact that is shareable, citeable, and press-worthy
+- It creates a brand association: "the RELICK score" becomes the shorthand for macro pattern risk
+- It gives Oracle users a weekly anchor event that increases engagement and reduces churn
+
+**Move this to TECHNICAL_BLUEPRINT.md Phase 3. Build it before Series A.**
+
+---
+
+### 9.2 The Historical Scenario Simulator Is the Oracle Killer Feature and Belongs in the Roadmap
+
+The Historical Scenario Simulator — "paste your portfolio, see what the current parallel implies for your specific holdings" — is described as a wild idea. It's not wild. It's the feature that makes Oracle irreplaceable for the serious investor managing real money.
+
+This is the feature that creates the "I can't unsee this" moment the RELICK brand promises. A user who has simulated the 2008 analog against their actual portfolio positions will not cancel Oracle. They will refer it to everyone they know who invests.
+
+The implementation is straightforward: Plaid/Alpaca integration for portfolio import, the `market_reactions` field from the event schema maps directly to portfolio impact modeling, and the legal framing is "historical context for educational purposes" (identical to the rest of the product).
+
+**Move this to the Oracle roadmap for Month 12–18. It should be the feature that drives Oracle's Series A story.**
+
+---
+
+### 9.3 Pivot B Is Underestimated and May Be the Lowest-Risk GTM
+
+Pivot B — selling RELICK to financial journalists as a research tool at $99–$299/month — is listed as a contingency if the retail consumer thesis fails. It should be treated as a parallel track from Day 1.
+
+Here's why: 10 journalists at 10 major publications using RELICK to find historical context = 10 published articles per month that say "historical parallels identified using RELICK show that..." This is the best possible marketing. It validates the product for investors, builds brand awareness, and drives organic user acquisition — all at the same time.
+
+A Pivot B dual-track doesn't require a pivot away from retail consumers. It requires 10 outbound sales emails to financial editors in Month 3 and a separate billing tier. The ROI is asymmetric — even if only 3 publications subscribe, the brand signal is worth more than the $3,000/month revenue.
+
+**Add a "Journalist/Media" tier at $149/month to the product roadmap. Target 10 publications by Month 6.**
+
+---
+
+### 9.4 The Founder's Intel Feed Is a Separate Product, Not a Feature
+
+The Founder's Intel Feed — RELICK for startup operators, showing what historical macro conditions mean for VC funding, hiring, and demand — is listed as a feature idea within RELICK. It's actually a separate product with a separate audience and a separate distribution channel.
+
+The VC-backed startup ecosystem is a distinct market from the serious retail investor market. The use cases overlap (both want to understand macro implications) but the specific applications are different. A founder cares about: when does VC funding dry up (credit tightening parallels), when do employees start leaving for stability (bear market hiring market history), when do customers stop buying (consumer spending parallels in recessions). An investor cares about: what happens to asset prices.
+
+**Don't build this as a feature. If and when RELICK has Series A resources, evaluate this as a separate product line — "RELICK for Operators" — with a separate founding team or GM.**
+
+---
+
+### 9.5 Mobile-First Is Completely Absent from the Brainstorm
+
+The entire brainstorm covers 8 wild features, 4 pivots, multiple partnership plays, and an API ecosystem — and not one idea is specifically mobile-first or mobile-native.
+
+The Oracle alert system fires a push notification when a pattern match is detected. This is inherently a mobile experience — users receive the alert while away from their desk, want to understand it immediately, and need a mobile-optimized memo view to consume the output in 60 seconds.
+
+The Voice-Mode Parallel ("Relick It") is listed as an audio briefing idea — but the most natural delivery mechanism is a morning push notification + 5-minute audio clip that plays during a commute. This is a mobile product.
+
+**What to add to the brainstorm:**
+- A native iOS/Android app (Year 2, after web product is proven) with push notifications, audio mode, and a swipe-based parallel discovery UI
+- Widgets: an iOS home screen widget showing the current Dead Reckoning Score that updates daily
+- Apple Watch app: simple confidence score + one-tap to see the active parallel
+- Podcast integration: weekly "RELICK Market History" episode distributed on Spotify/Apple Podcasts as a free acquisition channel
+
+---
+
+### 9.6 The Time Capsule Feature Is the Highest Virality Idea in the Document
+
+The Time Capsule — users write a thesis, seal it, RELICK "opens" it 90 days later and shows what happened vs. the parallel's predicted path — is listed in Tier 2 as an "interesting" wild idea. It deserves Tier 1.
+
+This feature is inherently shareable. "I RELICK'd in March that we were in a 1987 setup. Here's what actually happened 90 days later." Users will post this on Twitter. It gamifies accountability. It creates weekly content for social media. It gives financial influencers a recurring format.
+
+The engagement mechanics are excellent: users return to the app after 90 days (reduces churn), they share the result (drives acquisition), and the quality of the parallel matching is on public display (builds trust or surfaces failures).
+
+**Promote this to Tier 1. Add it to the Oracle roadmap in Phase 3. Build the share mechanics from the start.**
