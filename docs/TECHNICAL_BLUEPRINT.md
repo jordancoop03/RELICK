@@ -15,6 +15,7 @@
 6. [AI Pipeline & Prompt Architecture](#6-ai-pipeline--prompt-architecture)
 7. [Phased Build Roadmap](#7-phased-build-roadmap)
 8. [Infrastructure Scaling Plan](#8-infrastructure-scaling-plan)
+9. [Advisory Notes](#9-advisory-notes)
 
 ---
 
@@ -575,3 +576,109 @@ Do not use jargon without explaining it. Do not exceed 80 words.
 | Submit Intel memo | < 30s | < 15s | < 10s |
 | API uptime | 99% | 99.5% | 99.9% |
 | Event graph size | 2,000 events | 25,000 events | 250,000 events |
+
+---
+
+## 9. Advisory Notes
+
+> *Technical issues that could significantly impact product quality, user trust, or system reliability — and what to do about them.*
+
+---
+
+### 9.1 LLM Causal Chain Extraction Will Hallucinate — This Is Understated as a Risk
+
+The Enrichment Agent uses an LLM to extract causal chains: "What caused this event? What did this event cause?" This is described as a core feature. It is also the most likely source of systematic error in the knowledge graph.
+
+LLMs fabricate causal relationships with high confidence. The 2008 crisis "caused" many things — and the model will confidently assign causal links that financial historians would dispute. Worse: these hallucinated causal edges will be used by the parallel matching engine to surface "historically, when X happened, Y followed" — which becomes a false signal to paying users.
+
+**What to do:**
+- Causal edge generation should require at least one cited source (Tier 1-3) that explicitly states the causal relationship — not just two events that happened near each other
+- Add a confidence score specifically to edges (not just to events), and display edge confidence to users
+- Treat causal edges as hypotheses, not facts, until they're confirmed by a human reviewer or a citing source
+- Build a red-team testing protocol: before launch, adversarially probe the causal graph with known historical events and verify the extracted causal chains against academic consensus
+
+This is a product quality issue that will directly affect the credibility of the parallel matching output.
+
+---
+
+### 9.2 GPT-4o Memo Cost Is Higher Than Implied
+
+The document lists "$0.03–$0.15 per query" for AI inference but doesn't break down the cost specifically for the analyst memo generation workflow, which is the most expensive operation in the pipeline.
+
+A Submit Intel query involves:
+- GPT-4o signal extraction call (input ~500 tokens, output ~200 tokens): ~$0.006
+- text-embedding-3-large embedding (input ~500 tokens): ~$0.001
+- GPT-4o LLM reranking of 50 candidates (input ~8,000 tokens, output ~500 tokens): ~$0.10
+- GPT-4o memo generation (input ~6,000 tokens, output ~500 tokens): ~$0.08
+
+**Total per Submit Intel query: ~$0.19–$0.30.** At 50 queries/month per Analyst user, that's $9.50–$15.00/month in AI costs per Analyst subscriber — against $29/month ARPU. This is a 33–52% gross margin haircut on the Analyst tier from AI costs alone, before infrastructure.
+
+**What to do:** Either limit Submit Intel queries more aggressively (10–20/month, not 50), or use GPT-4o for final memo only and GPT-4o-mini for reranking (reduces cost by ~60%), or accept lower gross margin in Year 1 and renegotiate with OpenAI at scale. Model this explicitly before setting the credit limits.
+
+---
+
+### 9.3 The 15-Second Submit Intel Latency Target Is Aggressive
+
+The pipeline for Submit Intel is:
+1. GPT-4o signal extraction (~2–4 seconds)
+2. Embedding generation (~1 second)
+3. pgvector similarity search across 10,000+ events (~0.5–2 seconds)
+4. GPT-4o reranking of top 50 candidates (~5–8 seconds)
+5. GPT-4o memo generation (~6–10 seconds with streaming)
+
+Sequential: 14.5–25 seconds. Steps 1–3 can be parallelized somewhat, but the memo cannot start until reranking completes. A 15-second target is achievable with streaming (user sees the memo being written) but not as a blocking response.
+
+**What to do:** Implement streaming for memo generation from the first token. The user sees output start in ~12 seconds, and the full memo completes at ~20–25 seconds. This feels fast even when it isn't. Show a progress indicator during steps 1–3 ("Analyzing signals... Searching 10,000 events... Generating memo..."). The latency is acceptable if the UX acknowledges it.
+
+---
+
+### 9.4 Lightweight Charts Has Commercial Licensing Complexity Worth Verifying
+
+The document states Lightweight Charts is "free" — but TradingView's Lightweight Charts library is open-source under the Apache 2.0 license, which is permissive for commercial use. However, TradingView has in the past changed licensing terms or added attribution requirements for production commercial deployments.
+
+Before building the entire chart rendering layer on Lightweight Charts, verify:
+- Current Apache 2.0 license allows commercial use without royalty (yes, as of now)
+- Attribution requirements (must include TradingView credit in UI)
+- Whether TradingView has any "intent to commercialize" clause in ToS that could conflict
+
+If licensing becomes an issue at scale, the migration path is to ECharts (Apache 2.0, permissive) or a paid library like Highcharts ($2,500+/year commercial license). Budget this contingency.
+
+---
+
+### 9.5 There Is No Testing or Evaluation Framework for AI Output Quality
+
+The blueprint describes what the AI outputs should be but has no mechanism for measuring whether the outputs are actually good. The Enrichment Agent generates causal summaries. The parallel matching engine produces confidence scores. The analyst memo is "professional analyst-grade." But who decides if any of this is actually correct or useful?
+
+This is the single biggest engineering gap in the blueprint. Without an evaluation framework, quality drift is invisible.
+
+**What to build before launch:**
+- **Evals dataset:** 50–100 historical events with known correct causal relationships, verified by a domain expert. Run the Enrichment Agent against these and measure accuracy.
+- **Parallel matching ground truth:** 20 historical scenarios where the "right" parallel is known (e.g., March 2020 COVID crash → best parallel is 1987 Black Monday / 2008 GFC). Measure whether the engine surfaces these in the top 3.
+- **Memo quality rubric:** A simple 5-criterion rubric (factual accuracy, mechanism explanation quality, specificity, uncertainty acknowledgment, no advice given) that a reviewer can apply in 10 minutes per memo.
+- **Regression testing:** Every time the model changes or the prompt changes, run the eval suite automatically. Failing eval = blocked deployment.
+
+This is non-negotiable. A single high-profile bad memo going viral ends the product.
+
+---
+
+### 9.6 Mobile-First Design Is Completely Absent
+
+The blueprint has no mention of mobile. There is no mobile app in the roadmap. The responsive UI is in Phase 3 ("Months 9–12").
+
+This is a significant gap. Financial content is consumed predominantly on mobile — 60%+ of financial news and research is read on phones. The Oracle alert system (push notifications when a pattern match fires) is inherently mobile-first — you want to receive an alert while commuting, not sitting at a desktop.
+
+More practically: if RELICK launches on Product Hunt and Twitter, the first 5,000 visitors will view the landing page on their phones. A non-responsive interface at launch is a conversion killer.
+
+**What to do:** Prioritize responsive design from Phase 0, not Phase 3. The mobile experience doesn't need to be perfect — but it needs to be functional. The chart renderer (Lightweight Charts) is mobile-compatible with proper viewport handling. The annotation display needs to be designed for small screens from the first line of CSS. Delay the native app — but never delay responsive web.
+
+---
+
+### 9.7 No Handling of Conflicting Sources
+
+The Verification Agent checks whether 2+ sources corroborate an event. But what happens when two credible sources disagree about the cause, magnitude, or significance of an event?
+
+Example: WSJ says the 2018 Q4 selloff was driven by Fed rate hike fears. Bloomberg says it was driven by China trade war escalation. Both are Tier 2 sources. Both are plausible. Which causal mechanism does the Enrichment Agent extract?
+
+This is not an edge case — it's common for any contested macro event. The current architecture has no explicit handling for source disagreement, which means the LLM will either pick one or hallucinate a synthesis, either of which is problematic.
+
+**What to build:** When cross-source agreement score is below 0.7 (sources partially disagree), surface both interpretations in the event object with their respective source attributions. Show users that reasonable people disagree about this event's cause. This is actually a product differentiator — RELICK is honest about historical ambiguity in ways that other platforms are not.
