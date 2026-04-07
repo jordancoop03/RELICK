@@ -15,6 +15,7 @@
 6. [Traction Metrics That Matter](#6-traction-metrics-that-matter)
 7. [Fundraising Timeline](#7-fundraising-timeline)
 8. [Pitch Deck Outline](#8-pitch-deck-outline)
+9. [Advisory Notes](#9-advisory-notes)
 
 ---
 
@@ -336,18 +337,6 @@ Month 24-28: SERIES A
   Use: Scale team, marketing, data partnerships, enterprise tier
 ```
 
-### Key Milestones and Their Fundraising Impact
-
-| Milestone | Estimated Timing | Fundraising Impact |
-|---|---|---|
-| 5,000 waitlist | Month 3 | Pre-seed angels; credibility |
-| First $1 of revenue | Month 5 | Unlocks seed conversations |
-| NPS 50+ (beta) | Month 6 | Validates product-market fit |
-| $10K MRR | Month 8 | Seed round at $15M+ pre-money |
-| $50K MRR | Month 12 | Series A bridge possible |
-| $100K MRR | Month 18–24 | Series A at $30M+ pre-money |
-| First data licensing contract | Month 18+ | Multiple expansion; proof of B2B |
-
 ---
 
 ## 8. Pitch Deck Outline
@@ -355,11 +344,11 @@ Month 24-28: SERIES A
 *13 slides. No more. Investors decide in the first 3 minutes.*
 
 **Slide 1: Cover**  
-RELICK. Re-taste history. See what’s coming.  
+RELICK. Re-taste history. See what's coming.  
 [Clean visual: elephant silhouette, minimal text, dark theme]
 
 **Slide 2: The Hook**  
-When SVB collapsed in March 2023, experienced investors knew the playbook. Retail investors didn’t. That gap is RELICK’s market.  
+When SVB collapsed in March 2023, experienced investors knew the playbook. Retail investors didn't. That gap is RELICK's market.  
 [Single statistic: 62% of retail investors now use AI to inform decisions. None of them have access to verified historical market intelligence.]
 
 **Slide 3: The Problem**  
@@ -414,3 +403,88 @@ Key signal: domain expertise in both financial markets AND AI/engineering.
 18 months to: $100K MRR, 5,000 paying subscribers, 25,000 verified events.  
 Series A targets: Point72 Ventures, Coatue, General Catalyst.  
 Acquisition targets: Bloomberg, S&P Global, LSEG, BlackRock.
+
+---
+
+## 9. Advisory Notes
+
+> *The fundraising primer presents a credible narrative. These notes identify where the narrative is misaligned with reality and where it will get challenged in diligence.*
+
+---
+
+### 9.1 Point72 Ventures May Not Be the Right Lead
+
+Point72 Ventures invests in alternative data and financial markets technology — primarily to serve institutional investors and hedge funds. Steve Cohen's firm manages $35B+ in institutional capital. Their portfolio companies build tools for professional traders and fund managers.
+
+RELICK's core product is a $29/month subscription for serious retail investors. That's not Point72's customer. Before leading with Point72 as the dream investor, confirm that their thesis explicitly includes consumer-facing fintech. If the pitch meeting frames RELICK as "alternative data for hedge funds," that's a pivot away from the consumer thesis. If it frames RELICK as "democratizing institutional intelligence," Point72's partners may see it as below their customer size.
+
+**Better framing for Point72:** Lead with the data licensing revenue potential (institutional clients paying $25K–$100K/year for the knowledge graph API) and the enterprise tier. This makes RELICK look like a B2B data company with a consumer acquisition flywheel — which is a thesis Point72 would likely fund. It also happens to be RELICK's long-term revenue model.
+
+---
+
+### 9.2 The SVB Example Is Aging Fast
+
+The pitch opens with SVB collapsing in March 2023. By launch day, that will be 3+ years ago. By the time RELICK reaches Series A, it may be 4–5 years in the past. Financial crises have short half-lives as emotional hooks in pitch narratives.
+
+The SVB hook works today. It won't work as well in 2027. Plan now for what the updated hook is. The March 2020 COVID crash is more timeless — faster and more visceral than SVB. Or use a hook from whatever is happening in markets at the time of the pitch — the parallel engine itself should surface a better real-time example.
+
+**Rule:** The opening hook of the pitch should be updated every 6 months to reference the most recent high-profile market event. This makes the product feel alive and current, not built around a stale case study.
+
+---
+
+### 9.3 The Pre-Seed Is Labeled "Optional" When It May Be Essential
+
+The fundraising timeline puts pre-seed in Month 5–7 as "optional, if needed." For most founding teams, pre-seed is not optional — it's what pays the team's salaries while they build the product and generate the metrics that unlock the seed round.
+
+If the founding team cannot self-fund 6–9 months of runway, the pre-seed is mandatory. The $500K–1.5M on a SAFE at an $8–15M cap should be presented as the default path, not the contingency path.
+
+More importantly: raising the pre-seed forces the team to pitch early, surface weaknesses in the narrative before the high-stakes seed round, and build the investor relationships that generate warm intros to seed-stage lead investors.
+
+---
+
+### 9.4 The Comparables Table Has a Fundamental Problem
+
+Every comparable in the table — Daloopa, Quill AI, Visible Alpha, AlphaSense — is an institutional-focused product. They sell to hedge funds, banks, and professional analysts. Their price points are $250/month to $100,000+/year. Their distribution is enterprise sales.
+
+RELICK is a consumer-facing product at $29–$99/month with content-led distribution. These are not comparable business models, even if they're in adjacent markets.
+
+Sophisticated investors will notice this immediately. "Your comparable raised $18M institutional B2B vs. you're B2C at $29/month" is a legitimate objection that breaks the narrative.
+
+**Better comparables:** Seek out consumer-facing AI research subscription companies: Morning Brew (acquired for $75M), The Hustle (acquired by HubSpot for $27M), Axios (raised at $525M valuation). These are content/intelligence subscription businesses with consumer pricing. Or use direct revenue multiples from Hedgeye (estimated $20M ARR before institutional clients, valued at ~$100M) as a more direct comparable.
+
+---
+
+### 9.5 The 2024–2025 Fundraising Environment Is Not as Favorable as Presented
+
+The document says "2024–2025 is one of the best environments in history to raise money for an AI-powered financial data company." This statement was more accurate in 2023–2024 than it is in 2026.
+
+The reality for 2025–2026 pre-revenue fintech:
+- Seed valuations for non-LLM-infrastructure AI companies have compressed 25–40% from peak 2021–2022 levels
+- Investors are requiring more traction before seed (often $10K–30K MRR for a "seed round" that would have been raised pre-revenue 18 months ago)
+- The frothy "AI premium" that got companies funded on narrative alone in 2023 has diminished considerably
+- Financial data companies face additional scrutiny around regulatory risk and data licensing costs
+
+This doesn't mean RELICK can't raise — it absolutely can. But don't walk into pitches expecting the 2021 environment. Expect harder questions, more due diligence, and lower pre-money valuations unless there's meaningful traction.
+
+---
+
+### 9.6 The Pitch Script Uses SVB as Its Only Concrete Example — And It's Fading
+
+The verbal pitch script is strong in structure but relies entirely on SVB as the concrete illustration of the problem. A 5-minute pitch should have 2–3 concrete examples of the parallel matching engine in action, not just one.
+
+**Stronger additions:**
+- "When inflation hit 9% in 2022, what did history say? RELICK shows you that the 1972–1975 parallel was the closest analog — and in that parallel, equities fell 40% over 24 months before recovering. That's the kind of context no retail investor had access to."
+- "When a war starts in a commodity-producing region, RELICK immediately surfaces the 1973 oil embargo as the primary parallel — and shows you what happened to energy stocks, the dollar, and bonds in the 18 months that followed."
+
+These examples demonstrate the product working, not just the problem it solves.
+
+---
+
+### 9.7 What to Change Before Your First Pitch Meeting
+
+1. **Update the SVB hook** to the most recent high-profile market event at time of pitch
+2. **Replace institutional comparables** with consumer-facing intelligence subscription companies
+3. **Reframe Point72** pitch as a B2B data licensing story, not a retail subscription story
+4. **Add 2–3 product demo examples** to the verbal pitch (not just the SVB setup)
+5. **Make pre-seed the default path**, not the optional contingency
+6. **Acknowledge the current fundraising environment** accurately — investors appreciate founders who are realistic about market conditions
