@@ -17,6 +17,7 @@
 8. [Unit Economics](#8-unit-economics)
 9. [Team](#9-team)
 10. [Funding Ask](#10-funding-ask)
+11. [Advisory Notes](#11-advisory-notes)
 
 ---
 
@@ -42,7 +43,7 @@ The business model is a three-tier SaaS subscription: Explorer (free), Analyst (
 
 ### The "What, Not Why" Problem
 
-Every financial data platform tells investors *what* markets did. Bloomberg shows price. TradingView shows charts. Koyfin shows fundamentals. Hedgeye tells you what macro regime you’re in.
+Every financial data platform tells investors *what* markets did. Bloomberg shows price. TradingView shows charts. Koyfin shows fundamentals. Hedgeye tells you what macro regime you're in.
 
 **Nobody tells you WHY.**
 
@@ -54,7 +55,7 @@ Professional investors — hedge funds, macro traders, experienced portfolio man
 
 The serious retail investor managing $200K in their IRA had no tool to access this pattern recognition. Twitter was noise. Reddit was speculation. Bloomberg was $32,000/year.
 
-**The democratization gap:** The intelligence that Bloomberg Terminal users and Bridgewater researchers have always had — structured historical context, pattern recognition, event-to-market causal chains — is simply not available to anyone who can’t afford institutional access.
+**The democratization gap:** The intelligence that Bloomberg Terminal users and Bridgewater researchers have always had — structured historical context, pattern recognition, event-to-market causal chains — is simply not available to anyone who can't afford institutional access.
 
 ### The Verification Problem
 
@@ -64,7 +65,7 @@ AI tools for investors exist. ChatGPT, Perplexity, financial AI chatbots — use
 - Hallucination rates are material
 - No structured, compounding knowledge graph underlies the response
 
-Unverified AI in financial contexts is not just unhelpful. It can be harmful. RELICK’s 5-tier credibility scoring system and minimum 2-source verification rule are not just features — they are the foundation of institutional trust.
+Unverified AI in financial contexts is not just unhelpful. It can be harmful. RELICK's 5-tier credibility scoring system and minimum 2-source verification rule are not just features — they are the foundation of institutional trust.
 
 ---
 
@@ -93,13 +94,13 @@ Users submit a current headline or thesis (e.g., "The Fed is signaling a pause w
 **RELICK** carries three simultaneous meanings:
 - **RELIC:** An ancient artifact that survived time and carries history forward
 - **RE-LICK:** Sensory memory — taste something and it pulls you back to an exact moment. That involuntary recognition IS the parallel engine.
-- **RELICK (verb):** "Did you RELICK the 2008 setup against what’s happening with regional banks right now?"
+- **RELICK (verb):** "Did you RELICK the 2008 setup against what's happening with regional banks right now?"
 
-**Tagline:** *Re-taste history. See what’s coming.*
+**Tagline:** *Re-taste history. See what's coming.*
 
 **Brand ethos:** Ancient authority meets radical democratization. The intelligence Bloomberg and Bridgewater have always had. Now for everyone.
 
-**Animal spirit:** The elephant. Never forgets. Communicates through infrasound others can’t detect. The matriarch leads because her memory is the herd’s most valuable asset.
+**Animal spirit:** The elephant. Never forgets. Communicates through infrasound others can't detect. The matriarch leads because her memory is the herd's most valuable asset.
 
 ---
 
@@ -120,7 +121,7 @@ Users submit a current headline or thesis (e.g., "The Fed is signaling a pause w
 | Data export | No |
 | Community access | Read-only |
 
-**Conversion mechanism:** Explorer users hit the credit limit. The parallel engine is locked. The historical depth is capped. The upgrade prompt is contextual: they’re looking at something interesting when they hit the wall.
+**Conversion mechanism:** Explorer users hit the credit limit. The parallel engine is locked. The historical depth is capped. The upgrade prompt is contextual: they're looking at something interesting when they hit the wall.
 
 ### Tier 2: Analyst ($29/month or $290/year)
 **Target:** Serious retail investors, individual traders, finance enthusiasts who pay for information  
@@ -166,7 +167,7 @@ Users submit a current headline or thesis (e.g., "The Fed is signaling a pause w
 ### Phase 1: Waitlist & Community (Months 1–3)
 **Objective:** Build pre-launch audience of 5,000–10,000 qualified prospects before product ships.
 
-- Launch waitlist landing page with "Re-taste history. See what’s coming." positioning
+- Launch waitlist landing page with "Re-taste history. See what's coming." positioning
 - Publish 1–2 deep historical market stories per week on Substack/LinkedIn/X: *"What actually happened on Black Monday 1987"*, *"The 1998 LTCM crisis: every step, every market move"*
 - Build Twitter/X presence around the daily "Today in Market History" format
 - Seed in r/investing, r/SecurityAnalysis, r/MacroEconomics with genuine educational content
@@ -187,7 +188,7 @@ Users submit a current headline or thesis (e.g., "The Fed is signaling a pause w
 **Launch week playbook:**
 - Product Hunt launch — aim for #1 Product of the Day (drives 2,000–5,000 signups)
 - 3–5 financial influencer partnerships activated simultaneously (each sends to 50K–200K subscribers)
-- Press: TechCrunch, The Information, Bloomberg (yes — they’ll cover a product that competes with their data layer)
+- Press: TechCrunch, The Information, Bloomberg (yes — they'll cover a product that competes with their data layer)
 - Founder AMA on r/investing
 - Launch pricing: first 500 Analyst subscribers locked at $19/month for life (converts urgency)
 
@@ -368,7 +369,7 @@ Users submit a current headline or thesis (e.g., "The Fed is signaling a pause w
 - **Data Engineer** — Owns the data pipeline: GDELT ingestion, FRED integration, EDGAR parsing, credibility scoring
 - **AI/Prompt Engineer** — Owns the parallel matching pipeline and analyst memo generation quality
 
-### Series A Hires (Months 12‘24)
+### Series A Hires (Months 12–24)
 - Head of Marketing / Growth
 - Head of Data Partnerships
 - 2–3 additional engineers
@@ -416,3 +417,100 @@ Users submit a current headline or thesis (e.g., "The Fed is signaling a pause w
 ---
 
 *This document is a living document. Financial projections are model-based estimates subject to market conditions, execution quality, and product-market fit validation. All figures subject to revision.*
+
+---
+
+## 11. Advisory Notes
+
+> *Direct assessment of the assumptions, gaps, and recommended changes in this business plan. Read this before presenting to investors or making hiring decisions.*
+
+---
+
+### 11.1 The Year 1 Projections Are Not Conservative — They're Optimistic to the Point of Being Misleading
+
+60 paid subscribers in Q1 from a cold launch with no existing brand, no paid marketing budget, and a new product category assumes things that have not been earned. For context:
+- Hedgeye launched in 2008 with Keith McCullough's established Wall Street reputation and still took years to hit meaningful subscriber counts.
+- Most SaaS products see 0–50 paid subscribers in the first 30 days post-launch even with a solid waitlist.
+
+The Q1 target of 60 Analyst subscribers and 10 Oracle subscribers is *possible* but requires: a Product Hunt top launch, at least 2 major influencer activations, a waitlist of 5,000+ who converted at 2%+. All simultaneously. In month 1.
+
+**What to do:** Build a conservative case alongside the base case. Conservative Year 1: 200 Analyst subs, 40 Oracle subs by EOY. Even that is good enough to raise a Series A if NPS is 55+ and churn is below 5%. Do not anchor internal planning or cash burn to the base case projections.
+
+---
+
+### 11.2 The $8–15 Content CAC Is a Year 2+ Number, Not a Launch Number
+
+The blended CAC of $25–40 assumes a content flywheel is already running. In Month 1, there is no SEO authority, no established social audience, no referral base. Launch-month CAC for most content-led SaaS products is 3–5x the steady-state number. Expect $75–150/acquisition in the first 90 days.
+
+This doesn't break the unit economics — LTV:CAC is still positive at $75 blended CAC. But it affects runway planning. If you're spending $75 per Analyst subscriber in Q1, and Q1 brings in 60 subscribers, acquisition spend alone is $4,500. That's fine. But model it honestly so the cash projections are real.
+
+---
+
+### 11.3 The $35K/Month Q1 Burn Is Almost Certainly Insufficient
+
+A team of 4–5 people at market rates in tech:
+- Senior full-stack engineer: $140–180K/year = $12–15K/month
+- Data engineer: $120–150K/year = $10–12K/month
+- AI/ML engineer or prompt engineer: $130–160K/year = $11–13K/month
+- Founder salaries (reduced, but not zero): $5–8K/month each
+
+Personnel alone at a skeleton founding team is $35–45K/month before infrastructure, legal, tooling, and marketing. The $35K Q1 burn figure implies either the founding team is taking no salary or the team is smaller than described. Neither is sustainable.
+
+**What to do:** Model burn at $50–65K/month in Year 1 with a realistic team. This changes the required raise from ~$600K to ~$1.2M to cover 18 months. Budget for that now.
+
+---
+
+### 11.4 The $19/Month Lifetime Lock for First 500 Subscribers Is a Strategic Error
+
+Locking your first 500 subscribers — the highest-intent, most engaged early adopters, the people who will become your case studies, ambassadors, and referral sources — at $19/month for life permanently caps their LTV at $456 vs. $620 for regular Analyst subscribers.
+
+More importantly: these 500 people are the ones most likely to upgrade to Oracle at $99/month. By locking them at $19/month with a "lifetime deal" framing, you've structurally prevented that upgrade path or created an awkward conversation where Oracle costs them 5x their current price.
+
+**Better alternative:** Give first 500 subscribers 6 months free Oracle access, then convert them to $29/month Analyst. They pay nothing at first (removes commitment barrier), experience the full product (increases upgrade likelihood), and convert to a sustainable price point. You get the urgency signal without permanently capping LTV.
+
+---
+
+### 11.5 The Credit System on the Analyst Tier Creates Friction That Kills Engagement
+
+50 credits/month with rollover sounds generous. But the psychology of credit systems is well-documented: users become anxious about spending credits, hoard them, use the product less, then feel they got poor value, then churn. This is the exact opposite of what you want on a product where habit formation is the retention mechanism.
+
+Look at what Hedgeye does: tiered access is by feature set, not by usage quantity. You either have the Macro Show or you don't. There is no credit meter creating anxiety about using it.
+
+**Recommended change:** Make Analyst tier unlimited for chart annotations and highlight-to-learn. Limit Submit Intel to 20 queries/month (not 50 credits shared across all features). Oracle is unlimited Submit Intel + live monitoring + community. The differentiation is feature access, not usage quantity. This simplifies the product, reduces anxiety, and increases engagement — which reduces churn.
+
+---
+
+### 11.6 There Is No Evidence of Customer Discovery in This Document
+
+The entire business plan is written as if the product-market fit is already validated. It isn't. The plan references "industry benchmarks" for conversion rates, churn, and willingness to pay — but these are averages across all financial SaaS, not evidence that RELICK's specific product resonates with its specific audience.
+
+Before writing the next version of this business plan, conduct a minimum of 30 structured user interviews with people who match the target profile (serious retail investor, $50K–$2M managed, pays for at least one financial subscription). The three questions that matter most:
+1. When you're trying to understand why a market move happened, what do you do today?
+2. Have you ever tried to find historical parallels for a current market situation? What happened?
+3. Walk me through the last financial subscription you paid for. Why did you pay for it? Why did you stay (or cancel)?
+
+The answers to these questions are either confirmation or a pivot signal. Both outcomes are better than launching into assumptions.
+
+---
+
+### 11.7 Year 2 Cash Flow Positive Is Aggressive
+
+The model shows Year 2 revenue of $1.35M against expenses of $900K — implying the company is cash flow positive in Year 2. This would require: zero meaningful marketing investment to sustain growth, a team that stays at seed-stage size while managing 3,000+ subscribers, and no product investment.
+
+A more realistic Year 2 has $1.2M revenue, $1.8M expenses as the team scales to 8–10 people and marketing investment increases to drive Year 3 growth. Year 2 should be a controlled burn, not profitable.
+
+**The correct framing for investors:** The business reaches unit economics positive by Year 2 (each new subscriber is profitable from month 1). The business reaches operating cash flow positive by Year 3. Series A funds the Year 2 scale investment.
+
+---
+
+### 11.8 What to Change Based on This Analysis
+
+**Projections:** Build three scenarios — conservative, base, optimistic. Use conservative as your internal planning baseline and base case for investor presentations. Never use optimistic for anything.
+
+**Burn:** Model $55K/month in Year 1 rising to $90K/month by Year 1 Q4. Raise accordingly.
+
+**Launch pricing:** Replace the $19/month lifetime lock with a 6-month free Oracle trial for first 500. The urgency signal comes from the limited quantity, not the permanent discount.
+
+**Credits:** Remove credits from Analyst tier. Gate by features (Submit Intel limited to 20/month, unlimited chart annotation). Oracle is unlimited everything.
+
+**Customer discovery:** Do 30 user interviews before finalizing any of these numbers. The numbers should flow from what you learn about the customer, not from SaaS industry averages.
