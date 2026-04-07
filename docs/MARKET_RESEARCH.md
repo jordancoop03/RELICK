@@ -14,6 +14,7 @@
 6. [Distribution Channels](#6-distribution-channels)
 7. [Recent M&A and Funding Activity](#7-ma-and-funding)
 8. [Strategic Conclusions](#8-strategic-conclusions)
+9. [Advisory Notes](#9-advisory-notes)
 
 ---
 
@@ -414,3 +415,90 @@ Based on acquisition history and strategic fit:
 **The acquisition thesis is real.** Bloomberg, LSEG, S&P Global, and BlackRock have all paid $500M–$44B for financial data assets in recent years. A structured, verified, AI-queryable event knowledge graph with a consumer-facing layer is exactly what they would buy to compete with each other.
 
 > **Bottom line:** RELICK enters a $7.5B market growing at 15%, at a price point with no dominant competitor, with a data asset that compounds daily, targeting an audience that is increasingly AI-ready and demonstrably willing to pay.
+
+---
+
+## 9. Advisory Notes
+
+> *These notes identify assumptions that warrant scrutiny, gaps in the analysis, and recommended changes based on what the research actually shows vs. what the document asserts.*
+
+---
+
+### 9.1 The TAM Is Presented Wrong
+
+The $7.51B "investment research platform" figure is the **total** market — institutions, banks, hedge funds, Bloomberg terminals, everything. RELICK's reachable market at launch is a small fraction of this.
+
+A more honest framing: RELICK is competing for a slice of the $200–$500M/year that serious non-institutional investors currently spend on financial research subscriptions. That's still a large opportunity — but pitching $7.51B to investors without decomposing it is the kind of thing that gets founders caught out in diligence.
+
+**Recommended fix:** Build a bottoms-up SAM. Take the 15M "serious retail investors," apply a realistic conversion rate (start with 0.1%, not 4%), and show the math. That's 15,000 subscribers × $400/year blended ARPU = $6M. Honest, fundable, and grows as the denominator grows.
+
+---
+
+### 9.2 The "15M Serious Retail Investors" Figure Is Assumed, Not Measured
+
+The document asserts 15M serious self-directed retail investors in the US who would pay $20–$100/month. This number is the entire foundation of the market sizing and financial projections — and it has no cited source.
+
+The actual number of US investors who currently pay for *any* financial research subscription is likely 2–4M, based on disclosed subscriber counts from Hedgeye, Seeking Alpha, Motley Fool, and TradingView combined. That's still a meaningful market. But it's different from 15M.
+
+**The risk:** If the real converting population is 2–4M, Year 3 subscriber targets need to be reanchored — which doesn't kill the thesis, but changes the fundraising narrative.
+
+---
+
+### 9.3 The "$29–$99 Price Band Is Uncontested" Claim Is Not True
+
+Koyfin Plus is $39/month. It has a large, satisfied user base of exactly the audience RELICK is targeting. The document lists Koyfin's pricing accurately but then asserts the price band is "uncontested" — these cannot both be true.
+
+What IS true: Koyfin doesn't have RELICK's specific value proposition (event narrative + AI parallel matching). But the $29–$99 band is contested for the user's subscription budget. RELICK is not adding a new line item for most users; it's competing with Koyfin Plus, Seeking Alpha Premium, and TradingView Plus for the same $30–$100/month slot.
+
+**The better framing:** RELICK is the narrative intelligence layer that data platforms like Koyfin don't provide. Position as complementary to Koyfin, not as a replacement — because many users will use both, and that's fine.
+
+---
+
+### 9.4 Missing Competitors That Matter
+
+The competitor matrix omits several direct threats that should be tracked:
+
+- **Perplexity Finance / Perplexity Pro:** Perplexity is building finance-specific features and is already used by investors for research. At $20/month, it directly competes for the same budget. It doesn't have RELICK's structured knowledge graph — but for many users, good-enough AI research at $20/month beats structured research at $29/month.
+- **ChatGPT with browsing + Advanced Data Analysis:** OpenAI has 100M+ users and financial analysis is one of their top use cases. Zero incremental cost for existing Plus subscribers.
+- **Seeking Alpha Quant:** $599/year for quantitative ratings and factor analysis. Seeking Alpha has 20M monthly users and is actively expanding their tools.
+- **Morning Brew Money (paid):** Emerging direct competitor in the finance education/intelligence space.
+
+The absence of these from the competitor matrix creates a blind spot. If a prospective investor asks "what about Perplexity?" and the answer isn't ready, that's a problem in a pitch room.
+
+---
+
+### 9.5 "Today in Market History" Is Already Crowded
+
+The document lists "Today in Market History" as the primary content-led growth strategy. This format — daily posts connecting current date to historical market events — already exists in saturated form on Twitter/X. There are at least a dozen accounts doing exactly this, some with 100K+ followers.
+
+This doesn't mean RELICK shouldn't do it. It means RELICK needs a differentiated version: not just "what happened on this date" but "here's the annotated chart, here's the sourced mechanism, and here's what it implies for today's market." The depth differential is RELICK's advantage. The document should acknowledge the format's saturation and articulate RELICK's specific differentiation clearly.
+
+---
+
+### 9.6 No International Market Analysis
+
+The entire document is US-centric. The SAM estimate is US-only. The competitor landscape is US-focused. But financial markets are global, and some of the most engaged serious retail investors are in the UK (ISA investors), Germany (ETF culture), Japan (retail bond/FX traders), and Australia (SMSF investors).
+
+This isn't a launch-day problem — international expansion is Year 2+. But the $2.1B–$3.4B SAM figure should either include or explicitly exclude non-US markets. If the global serious retail investor population is 50M+ as the document states, the SAM is meaningfully larger than the US-only version.
+
+---
+
+### 9.7 The Whitespace Is Asserted, Not Proven Through Customer Discovery
+
+The document concludes that RELICK's whitespace is "real" and "uncontested" — but there is no reference to any actual customer discovery. No user interviews. No survey data on whether serious retail investors actually want structured historical parallels vs. just better AI answers. No evidence that the "why" question is what drives churn from existing platforms.
+
+Before finalizing the positioning, conduct 30–50 user interviews with people who fit the target profile. The specific question to answer: *"When you're trying to understand why a market moved, what do you do today, and what's frustrating about it?"* 
+
+The answer to that question is either the product validation or the pivot signal.
+
+---
+
+### 9.8 What to Change Based on This Research
+
+**Pricing:** Keep $29/$99 — they're validated by the market. Consider whether the annual discount (currently 17% and 25%) is aggressive enough to drive prepay behavior that improves cash flow. Competitors like Hedgeye offer 50–60% discounts for annual commitments. A $199/year Analyst tier (vs. $348/year monthly) could significantly accelerate cash collection.
+
+**Competitor framing:** Add Perplexity and ChatGPT to the matrix. Frame them as "AI tools without structured verification" rather than direct competitors. The absence of a credibility layer is RELICK's differentiation against these, not just against Bloomberg.
+
+**TAM framing:** Present both top-down ($7.51B) and bottoms-up (subscriber count × ARPU) views of the market. The bottoms-up view shows honesty; the top-down view shows ambition. Investors want both.
+
+**Customer discovery:** This is the most important gap. Run 50 user interviews before committing to the current positioning. It may confirm everything — or it may reveal that the real pain point is something slightly different that changes the product roadmap.
