@@ -14,12 +14,13 @@
 6. [Real-Time Monitoring Pipeline](#6-real-time-monitoring-pipeline)
 7. [Data Partnership Opportunities](#7-data-partnership-opportunities)
 8. [5-Year Data Moat Building Strategy](#8-5-year-data-moat-building-strategy)
+9. [Advisory Notes](#9-advisory-notes)
 
 ---
 
 ## 1. Data Philosophy
 
-RELICK’s data strategy is built on a single foundational belief:
+RELICK's data strategy is built on a single foundational belief:
 
 > **The structured event knowledge graph is the product. Everything else — the charts, the AI memos, the alerts — is the interface to the graph.**
 
@@ -168,7 +169,7 @@ SOURCEURL         # URL of source article
 
 1. **Real-time global coverage:** 15-minute update cycle; genuinely comprehensive
 2. **Historical depth:** 1979–present, unmatched for free data
-3. **CAMEO framework:** Structured event taxonomy — maps well to RELICK’s event type schema
+3. **CAMEO framework:** Structured event taxonomy — maps well to RELICK's event type schema
 4. **GoldsteinScale:** Instant quantitative signal on event severity/direction
 5. **AvgTone:** Sentiment signal from news coverage — useful for qualitative signal extraction
 6. **NumMentions:** Measures how much attention an event received — proxy for market significance
@@ -448,35 +449,6 @@ CREATE TYPE event_type_enum AS ENUM (
     'technological',         -- Major tech innovations with market impact
     'market_structure'       -- Flash crashes, circuit breakers, exchange events
 );
-
--- macro_regime JSONB schema
--- {
---   "fed_funds_rate": 5.25,
---   "yield_curve_slope": -0.45,       -- 10Y-2Y spread in percentage points
---   "yield_curve_shape": "inverted",  -- normal | flat | inverted
---   "sp500_trailing_12m": -18.2,      -- % return
---   "sp500_pe_ratio": 18.5,
---   "vix_level": 32.4,
---   "vix_regime": "elevated",         -- low | normal | elevated | extreme
---   "hy_credit_spread_oas": 650,      -- in basis points
---   "credit_spread_regime": "wide",   -- tight | normal | wide | crisis
---   "usd_index": 104.5,
---   "fed_policy_stance": "tightening", -- easing | neutral | tightening
---   "recession_probability": 0.65
--- }
-
--- market_reactions JSONB schema
--- {
---   "sp500": {"1d": -3.2, "5d": -8.1, "20d": -15.4, "60d": -22.1},
---   "ndx": {"1d": -4.1, "5d": -9.3, "20d": -18.2, "60d": -25.0},
---   "us10y_yield": {"1d": 0.15, "5d": 0.28},  -- in percentage points
---   "us2y_yield": {"1d": 0.22, "5d": 0.35},
---   "gold": {"1d": 1.2, "5d": 3.1, "20d": 5.8},
---   "oil_wti": {"1d": -8.2, "5d": -12.1},
---   "usd_index": {"1d": 0.8, "5d": 1.3},
---   "vix": {"1d": 12.5, "5d": 18.2},  -- absolute level change
---   "hy_spread": {"1d": 45, "5d": 120}  -- in basis points
--- }
 ```
 
 #### `event_sources` (Source Citations)
@@ -582,17 +554,6 @@ CREATE INDEX idx_events_embedding_small
 CREATE INDEX idx_events_embedding_large
     ON events USING hnsw (embedding_large vector_cosine_ops)
     WITH (m = 16, ef_construction = 64);
-
--- Filtered similarity search examples:
--- 1. Find top-10 similar events from before 2010 with credibility >= 0.8:
-SELECT event_id, title, event_date,
-       1 - (embedding_large <=> $1) AS similarity
-FROM events
-WHERE event_date < '2010-01-01'
-  AND credibility_score >= 0.8
-  AND verification_status = 'verified'
-ORDER BY embedding_large <=> $1
-LIMIT 10;
 ```
 
 ---
@@ -755,7 +716,7 @@ Once the event knowledge graph reaches 100,000+ verified events:
 - Oracle user "watches" aggregated into a live market intelligence layer: what 10,000 serious investors are watching this week
 - Divergence alerts: When community consensus diverges from historical baseline — a signal itself
 - Pattern frequency tracking: Which historical patterns are being matched most in current market conditions (itself a sentiment indicator)
-- First enterprise white-label contract: A financial media company or research firm licensing RELICK’s graph and UI
+- First enterprise white-label contract: A financial media company or research firm licensing RELICK's graph and UI
 
 ### Year 5: Institutional Standard (2030)
 **Milestone:** RELICK is cited in financial media; the knowledge graph is referenced in investment research
@@ -768,7 +729,89 @@ Once the event knowledge graph reaches 100,000+ verified events:
 ### Why This Moat Is Durable
 
 1. **Time-based compounding:** The longer the pipeline runs, the more complete the coverage. A competitor starting today is always 5 years behind.
-2. **Causal graph structure:** The edges between events (causality, not just co-occurrence) cannot be computed retrospectively at scale. They require the enrichment pipeline running on each event at time of ingestion.
+2. **Causal graph structure:** The edges between events (causality, not just co-occurrence) cannot be computed retroactively at scale. They require the enrichment pipeline running on each event at time of ingestion.
 3. **User signal data:** 500,000+ anonymized intel submissions are genuinely proprietary. No one else has this dataset.
 4. **Credibility verification:** The 5-tier system and source registry were built over years. Rebuilding trust after any contamination takes years more.
 5. **Network effects:** The more Oracle users, the better the community consensus layer. The better the community consensus, the more valuable Oracle is. Classic network effect lock-in.
+
+---
+
+## 9. Advisory Notes
+
+> *Issues with the data strategy that will affect product quality, operational reality, and moat building timelines.*
+
+---
+
+### 9.1 The Verification Agent Running Every 2 Hours Is Too Slow for a Real-Time Intelligence Product
+
+The pipeline as designed: GDELT detects an event → Ingestion Agent stages it → Verification Agent picks it up in the next 2-hour cycle → Enrichment Agent processes it → Oracle alert fires.
+
+In practice: a market-moving event (e.g., an emergency Fed rate decision) happens at 10am. It enters the knowledge graph at earliest by noon, more likely by 2pm. Oracle alerts fire in the early afternoon for something that happened in the morning.
+
+For a product positioning itself as delivering real-time parallel intelligence to paying subscribers, 2–4 hour detection-to-alert latency is not competitive. Financial Twitter will have discussed the event exhaustively before RELICK's alert arrives.
+
+**What to do:** Make verification event-driven, not batch-scheduled. When a high-urgency event (GoldsteinScale < -5, NumMentions > 100) enters the staging table, trigger immediate asynchronous verification rather than waiting for the 2-hour Celery beat. Redis pub/sub or a Celery priority queue can handle this. For most events, the 2-hour batch is fine. For market-moving events, it needs to be sub-30 minutes.
+
+---
+
+### 9.2 The "2,000 Manually Reviewed Events by Month 6" Milestone Requires ~1,000 Hours of Research Labor
+
+Seeding the knowledge graph with 2,000 high-quality events by Month 6 is presented as a data pipeline milestone. It's actually a human labor milestone.
+
+At 30 minutes per event (researching, verifying 2+ sources, writing a 200-word summary, tagging causal links, calculating market reactions) — 2,000 events = 1,000 hours = 25 full-time weeks of work for one person, or 4–5 months of parallel work for 2 people doing nothing else.
+
+The founding team doesn't have 1,000 hours of research time in Months 1–6 while also building the platform.
+
+**What to do:** Reduce the Month 6 seed target to 200–500 events covering the highest-demand historical periods (2008, 2020, 2022, 1987, 1997). Focus on depth over breadth initially. Automate more aggressively: the Enrichment Agent should produce a draft summary that a human reviews in 10 minutes, not 30. Consider a contractor research team (2–3 history/finance students at $20/hour) for the initial seeding sprint. 200 excellent events beats 2,000 mediocre ones.
+
+---
+
+### 9.3 The Credibility Score Minimum of 0.6 Is Arbitrary and Uncalibrated
+
+The hard floor of 0.6 for knowledge graph entry was chosen without a calibration basis. There is no analysis showing what a 0.6-credibility event actually looks like in practice and whether it's good enough to appear in user-facing outputs.
+
+The math: A single WSJ article with no other corroboration scores:
+- best_tier_score × 0.50 = 0.85 × 0.50 = 0.425
+- source_count_normalized × 0.30 = 0.20 × 0.30 = 0.060
+- cross_source_agreement × 0.20 = 0.90 × 0.20 = 0.180
+- **Total: 0.665** — above the 0.6 floor, enters knowledge graph
+
+A single WSJ article with no corroboration entering the knowledge graph as a verified event is a problem. WSJ makes mistakes. WSJ publishes contested interpretations. The 0.6 floor allows single-source events from Tier 2 outlets.
+
+**What to do:** Raise the floor to 0.70 or enforce a hard rule that at least 2 independent sources must corroborate regardless of the composite score. The formula already has a `len(tier_qualified) < 2` hard rejection — make sure this is actually enforced in the implementation before the composite score check, not after. Calibrate the threshold against a holdout set of known events.
+
+---
+
+### 9.4 The Federal Reserve "Partnership" Idea Is Naive
+
+The document suggests pursuing "Federal Reserve Education Resources" as a Tier A partnership, specifically: "Recognition as a Fed-compatible educational tool; potentially joint content."
+
+The Federal Reserve does not endorse commercial financial products. Ever. The Federal Reserve Bank of San Francisco, NY Fed, and Board of Governors have strict policies against endorsing, co-branding, or appearing to validate specific commercial software or platforms.
+
+Pursuing a "Fed partnership" will result in either a polite no or silence. More importantly, if RELICK uses language implying Fed endorsement without it, the legal risk is real (Section 709 of Title 18 USC prohibits false suggestion of Fed affiliation).
+
+**What to do:** Remove this from the partnership roadmap. The correct framing is: "RELICK uses Federal Reserve public data (FOMC transcripts, Beige Book, speeches) as Tier 1 primary sources." That's accurate, legally safe, and valuable to communicate. A formal partnership with the Fed is not achievable and not necessary.
+
+---
+
+### 9.5 Pre-1979 Historical Events Should Be in MVP, Not Year 2
+
+The document puts pre-1979 event coverage (1929 crash, 1971 Nixon shock, 1973 oil embargo, 1987 Black Monday) in Phase 3 / Year 2. This is backwards.
+
+These events — the 1929 crash, the 1971 closing of the gold window, the 1973 OPEC oil embargo, the 1987 Black Monday — are the most-requested historical parallels by serious investors. When someone submits "the Fed is losing control of inflation," the most powerful parallel is not 2022. It's 1972–1975. When someone submits "we're entering a bear market," the most credible parallel is 1929 or 1987, not 2000.
+
+A parallel engine that can only match to events post-1979 will miss the most historically resonant comparisons every time. Users will immediately notice and comment on it.
+
+**What to do:** Prioritize curating 50–100 pre-1979 "landmark" events manually for MVP. These 50 events — thoroughly annotated, deeply sourced, covering the key inflection points of 20th century economic history — are more valuable than 5,000 automatically generated post-2000 events. They are the intellectual anchor of the product. Manual curation is the right approach for this tier.
+
+---
+
+### 9.6 The 5-Year Moat Claim Contains One Partially False Premise
+
+The document states: "The edges between events (causality, not just co-occurrence) cannot be computed retroactively at scale. They require the enrichment pipeline running on each event at time of ingestion."
+
+This is not fully accurate. A competitor with sufficient compute and the same source data (FRED, GDELT, EDGAR) could in principle run RELICK's entire enrichment pipeline retroactively on historical events. The bottleneck is data access and compute time, not a fundamental impossibility. A well-funded team (say, S&P Global with a $3M engineering budget) could plausibly rebuild 10 years of RELICK's knowledge graph in 12–18 months.
+
+**The moat that is actually irreplicable:** User behavior data. The 500,000+ intel submissions — what specific headlines serious investors were worried about, which parallels they searched for, at what point in market cycles — this cannot be reconstructed. It's a unique behavioral dataset that exists only if RELICK has users actively submitting queries over years.
+
+**What to do:** Reframe the moat story: the graph structure is a 2–3 year head start; the user behavior layer is the permanent moat. This is a more defensible and honest claim, and it changes how you talk about network effects to investors.
